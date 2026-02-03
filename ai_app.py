@@ -116,7 +116,16 @@ if uploaded_file:
     st.write(f"**Risk Category:** `{risk}`")
     st.write(f"**Clinical Recommendation:** {recommendation}")
 
-    
+    # AI EXPLANATION (OLLAMA)
+    with st.spinner("Generating AI clinical explanation..."):
+        ai_explanation = generate_ai_explanation(
+            predicted_dx,
+            confidence,
+            risk
+        )
+
+    st.subheader("AI Clinical Explanation")
+    st.write(ai_explanation)    
 
     # CLASS PROBABILITIES
     st.subheader("📊 Class-wise Probabilities")
