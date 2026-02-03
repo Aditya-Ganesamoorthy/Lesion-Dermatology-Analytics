@@ -13,17 +13,7 @@ IMG_DIR_2 = r"C:/Users/adity/Documents/Semester 8/Healthcare Analytics Theory/Da
 
 df = pd.read_csv(METADATA_PATH)
 
-def resolve_image_path(image_id):
-    img_name = image_id + ".jpg"
-    path1 = os.path.join(IMG_DIR_1, img_name)
-    path2 = os.path.join(IMG_DIR_2, img_name)
 
-    if os.path.exists(path1):
-        return path1
-    elif os.path.exists(path2):
-        return path2
-    else:
-        return None
 
 df["image_path"] = df["image_id"].apply(resolve_image_path)
 
